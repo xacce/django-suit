@@ -38,8 +38,8 @@ class DjangoSuitConfig(AppConfig):
     menu_open_first_child = True
 
 
-    def __init__(self, app_name, app_module):
 
+    def __init__(self, app_name, app_module):
         self.override_datepickers()
         self.setup_model_admin()
 

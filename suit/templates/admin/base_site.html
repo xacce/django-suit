@@ -5,7 +5,7 @@
 {% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
 
 {% block branding %}
-    <div id="site-name">
+    <div id="site-name col-">
         <a href="{% url 'admin:index' %}" class="navbar-brand">{% firstof 'admin_name'|suit_conf site_header _('Django administration') %}</a>
     </div>
 {% endblock %}

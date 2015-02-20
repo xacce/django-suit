@@ -256,6 +256,7 @@ body{margin-bottom:60px}
 .footer .branding{text-align:center;font-weight:bold}.footer .branding .version{color:#777;font-size:11px;font-weight:normal}.footer .branding .version a{color:#777}
 .footer .copyright{font-size:11px;text-align:right}
 .footer .tools{font-size:11px}.footer .tools a{display:inline-block;margin-right:10px}.footer .tools a .glyphicon{color:#333;margin-right:5px}
+.form-column.widget-SorcererWidget{width:100%}
 .suit-menu-vertical #wrapper{padding-left:0;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}.suit-menu-vertical #wrapper.toggled{padding-left:250px}.suit-menu-vertical #wrapper.toggled #menu-wrapper{width:250px}
 .suit-menu-vertical #wrapper.toggled #page-content-wrapper{position:absolute;margin-right:-250px}
 .suit-menu-vertical #menu-wrapper{z-index:1000;position:fixed;left:250px;width:0;height:100%;margin-left:-250px;overflow-y:auto;background:#222;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;-o-transition:all .5s ease;transition:all .5s ease}
@@ -322,6 +323,7 @@ body{margin-bottom:60px}
 .form-horizontal .fieldset-body .form-group select{display:block;width:100%;height:30px;padding:4px 8px;font-size:12px;line-height:1.428571429;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;border-radius:0}.form-horizontal .fieldset-body .form-group select:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6)}
 .form-horizontal .fieldset-body .form-group .input-group select{position:relative;z-index:20}
 .form-horizontal .fieldset-body .form-group .input-group .glyphicon{top:2px}
+.form-horizontal .fieldset-body .form-group .form-inline .input-group:first-child{max-width:201px}
 .form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a img{display:block;content:'';width:14px;height:14px;font-size:13px;color:#4f5255;position:relative;top:1px;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;vertical-align:inherit}.form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a img:after{content:"\2a"}
 .form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a:hover{text-decoration:none}.form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a:hover img{text-decoration:none}.form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a:hover img:after{text-decoration:none;color:#202122}
 .form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a img{color:#5cb85c}.form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper a img:after{content:"\e081"}

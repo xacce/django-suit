@@ -13,6 +13,6 @@ class IncludeBlock(models.Model):
         return self.template_path
 
     def clean(self):
-        if IncludeBlock.objects.filter(template_path=self.template_path).count != 0:
+        if IncludeBlock.objects.filter(template_path=self.template_path).exclude(pk=self.pk).count() != 0:
             raise ValidationError('Instance with path %s already exists' % self.template_path)
         return super(IncludeBlock, self).clean()

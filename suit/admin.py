@@ -7,7 +7,7 @@ from django.forms import ModelForm
 from django.contrib import admin
 from django.db import models
 from suit.widgets import NumberInput, SuitSplitDateTimeWidget
-
+import models as suit_models
 
 class SortableModelAdminBase(object):
     """
@@ -189,3 +189,4 @@ if 'cms' in settings.INSTALLED_APPS:
     except ImportError:
         pass
 
+admin.site.register(suit_models.IncludeBlock)

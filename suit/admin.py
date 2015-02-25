@@ -7,7 +7,9 @@ from django.forms import ModelForm
 from django.contrib import admin
 from django.db import models
 from suit.widgets import NumberInput, SuitSplitDateTimeWidget
+from django.utils.translation import ugettext_lazy as _
 import models as suit_models
+
 
 class SortableModelAdminBase(object):
     """
@@ -73,6 +75,7 @@ class SortableStackedInlineBase(SortableModelAdminBase):
     """
     Sortable stacked inline
     """
+
     def __init__(self, *args, **kwargs):
         super(SortableStackedInlineBase, self).__init__(*args, **kwargs)
         self.ordering = (self.sortable,)
@@ -186,6 +189,38 @@ if 'cms' in settings.INSTALLED_APPS:
             'publication_date': SuitSplitDateTimeWidget,
             'publication_end_date': SuitSplitDateTimeWidget,
         }
+    except ImportError:
+        pass
+
+if 'content_status' in settings.INSTALLED_APPS:
+    try:
+        from content_status import models as content_models
+
+        class ContentStatusFilter(admin.SimpleListFilter):
+            title = _("Content status")
+            parameter_name = 'content_status'
+
+            def lookups(self, request, model_admin):
+                m = model_admin.model
+                levels = content_models.Level.objects.filter(
+                    model_path="%s.%s" % (m._meta.app_label, m._meta.model_name)).values_list('pk', 'title')
+                return levels
+
+            def queryset(self, request, queryset):
+                val = self.value()
+                if not val:
+                    return queryset
+                level = content_models.Level.objects.get(pk=int(val))
+                return level.make_query(queryset)
+
+        def db_get_list_filter(self, request):
+            curr_model_path = str(self.model._meta)
+            paths = [level.model_path for level in content_models.Level.objects.all()]
+            if curr_model_path in paths:
+                return list(self.list_filter) + [ContentStatusFilter]
+            return self.list_filter
+
+        ModelAdmin.get_list_filter = db_get_list_filter
     except ImportError:
         pass
 

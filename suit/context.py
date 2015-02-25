@@ -15,7 +15,7 @@ def include_blocks_context(request):
                 if template:
                     new_block = suit_models.IncludeBlock(template_path=template, css_class=css_class, priority=priority)
                     blocks.append(new_block)
-        except (ImportError, ValueError):
+        except (AttributeError, ValueError):
             pass
 
         return {'include_blocks': sorted(blocks, key=attrgetter('priority'), reverse=True)}

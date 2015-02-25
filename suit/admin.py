@@ -159,8 +159,7 @@ class SortableModelAdmin(SortableModelAdminBase, ModelAdmin):
             'order']
 
     def get_changelist_form(self, request, **kwargs):
-        form = super(SortableModelAdmin, self).get_changelist_form(request,
-                                                                   **kwargs)
+        form = super(SortableModelAdmin, self).get_changelist_form(request, **kwargs)
         self.merge_form_meta(form)
         return form
 

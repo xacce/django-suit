@@ -1,5 +1,5 @@
 {% extends "admin/base_site.html" %}
-{% load i18n admin_static suit_menu suit_tags %}
+{% load i18n admin_static suit_menu suit_tags suit_includes %}
 
 {% block coltype %}colMS{% endblock %}
 
@@ -50,7 +50,6 @@
                 </div>
             {% endif %}
 
-
             {# Menu #}
             {% get_menu request as menu_list %}
             {% if menu_list %}
@@ -70,11 +69,14 @@
             {% endif %}
 
             {#  Custom blocks #}
-            {% for block in include_blocks %}
-                <div class="{{ block.css_class }}">
-                    {% include block.template_path %}
-                </div>
-            {% endfor %}
+            {% get_include_blocks as include_blocks %}
+            {% if include_blocks %}
+                {% for block in include_blocks %}
+                    <div class="{{ block.css_class }}">
+                        {% include block.template_path %}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
         </div>
     </div>

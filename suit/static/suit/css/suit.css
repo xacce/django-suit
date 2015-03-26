@@ -427,3 +427,13 @@ tr.form-row:nth-last-child(3) td .inline-sortable .sortable-down,#result_list tr
 
 .form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper .input-group .selector .selector-chosen {float:left}
 .form-horizontal .fieldset-body .form-group .widget-RelatedFieldWidgetWrapper .input-group .selector .selector-chosen a {float:left; padding-top: 10px}
+
+/* green plus in inlines */
+.input-group .input-group-btn a img {display: none}
+
+/* selects in inlines */
+td .input-group select {display:block;width:100%;height:30px;padding:4px 8px;font-size:12px;line-height:1.428571429;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;border-radius:0}
+.input-group select[multiple] {display:block;width:100%;height:150px;padding:4px 8px;font-size:12px;line-height:1.428571429;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;border-radius:0}
+
+/* multiple selects */
+.form-group .input-group select[multiple] {display:block;width:100%;height:150px;padding:4px 8px;font-size:12px;line-height:1.428571429;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;-webkit-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s;border-radius:0}

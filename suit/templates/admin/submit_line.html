@@ -4,15 +4,15 @@
   <div class="col-sm-2">
     {% if show_delete_link %}
       {% url opts|admin_urlname:'delete' original.pk|admin_urlquote as delete_url %}
-      <p class="deletelink-box">
-        <a href="{% add_preserved_filters delete_url %}" class="deletelink text-danger">
+      <div class="btn-group btn-group-lg deletelink-box">
+        <a href="{% add_preserved_filters delete_url %}" class="btn btn-danger">
           <span class="glyphicon glyphicon-remove"></span>
           {% trans "Delete" %}</a>
-      </p>
+      </div>
     {% endif %}
   </div>
-  <div class="col-sm-10">
 
+  <div class="col-sm-10">
     <div class="btn-group btn-group-lg">
       {% if show_save %}
         <input type="submit" value="{% trans 'Save' %}" class="default btn btn-primary" name="_save"/>{% endif %}

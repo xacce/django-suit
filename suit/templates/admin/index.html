@@ -33,7 +33,7 @@
 
                                             {% if model.add_url %}
                                                 <td><a href="{{ model.add_url }}" class="addlink glyphlink"><span
-                                                        class="glyphicon glyphicon-plus-sign"></span>{% trans 'Add' %}
+                                                    class="glyphicon glyphicon-plus-sign"></span>{% trans 'Add' %}
                                                 </a>
                                                 </td>
                                             {% else %}
@@ -56,8 +56,13 @@
                 {% for app in menu_list %}
                     <div class="col-md-3 col-lg-3 col-md-6">
                         <div class="list-group">
+
                             <li class="list-group-item">
-                                <h5>{% trans app.label|capfirst %}</h5>
+                                {% if app.url %}
+                                    <h5><a href="{{ app.url }}">{% trans app.label|capfirst %}</a></h5>
+                                {% else %}
+                                    <h5>{% trans app.label|capfirst %}</h5>
+                                {% endif %}
                             </li>
 
                             {% for model in app.models %}

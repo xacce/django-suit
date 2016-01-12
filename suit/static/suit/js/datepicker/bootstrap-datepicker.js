@@ -48,7 +48,7 @@
 				var val = d && d.valueOf();
 				ignoreTime = typeof(ignoreTime) === 'undefined';
 				if (ignoreTime) {
-					val = d.getFullYear().toString() + d.getMonth() + d.getDate();
+					val = d.getUTCFullYear().toString() + d.getUTCMonth() + d.getUTCDate();
 				}
 				for (var i=0, l=this.length; i < l; i++)
 					if (ignoreTime) {
@@ -880,8 +880,10 @@
 		_setTimeDropdowns: function(viewDate) {
 			var $timepicker = this.picker.find('.timepicker');
 			$('select[name=hour]', $timepicker).val(('0' + viewDate.getUTCHours()).slice(-2));
-			$('select[name=minute]', $timepicker).val(('0' + viewDate.getUTCMinutes()).slice(-2));
-			$('select[name=second]', $timepicker).val(('0' + viewDate.getUTCSeconds()).slice(-2));
+			var $sel = $('select[name=minute]', $timepicker).val(('0' + viewDate.getUTCMinutes()).slice(-2));
+			$sel.val() === null && $sel.val('00');
+			$sel = $('select[name=second]', $timepicker).val(('0' + viewDate.getUTCSeconds()).slice(-2));
+			$sel.val() === null && $sel.val('00');
 		},
 
 		_getTimeFromDropdowns: function() {

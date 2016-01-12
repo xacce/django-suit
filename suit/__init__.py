@@ -1,2 +1,2 @@
-VERSION = '0.3.1.1-dev1'
+VERSION = '0.3a3'
 default_app_config = 'suit.apps.DjangoSuitConfig'

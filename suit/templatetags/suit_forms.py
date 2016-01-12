@@ -1,10 +1,5 @@
 from django import template
-from django.contrib.admin.widgets import ForeignKeyRawIdWidget, \
-    RelatedFieldWidgetWrapper
-from django.forms.widgets import Input, Textarea, Select
-from django.utils.safestring import mark_safe
 from suit.config import get_config
-from suit.widgets import adjust_widget
 
 register = template.Library()
 
@@ -31,18 +26,6 @@ def get_fieldset_size(fieldset):
         for cls in fieldset.classes.split(' '):
             if ':' in cls:
                 return cls.split(':')
-
-
-@register.filter
-def suit_form_field(field):
-    adjustable_widgets = (
-        Input, Textarea, ForeignKeyRawIdWidget, RelatedFieldWidgetWrapper,
-        Select)
-    if not hasattr(field, 'field') or \
-                    not isinstance(field.field.widget, adjustable_widgets):
-        return field
-    field = adjust_widget(field)
-    return field
 
 
 @register.filter
@@ -85,7 +68,6 @@ def suit_form_field_class(field, fieldset):
         css_classes.append(default_class)
 
     return ' '.join(css_classes)
-
 
 @register.filter()
 def line_errors_as_data(line):

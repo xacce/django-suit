@@ -2,14 +2,14 @@ import copy
 from django.conf import settings
 from django.contrib.admin import ModelAdmin
 from django.contrib.admin.views.main import ChangeList
-from django.contrib.contenttypes import generic
-from django.forms import ModelForm
+from django.contrib.contenttypes.admin import GenericTabularInline, GenericStackedInline
+from django.forms import ModelForm, NumberInput
 from django.contrib import admin
 from django.db import models
-from suit.widgets import NumberInput, SuitSplitDateTimeWidget
+from suit.widgets import SuitSplitDateTimeWidget
 from django.utils.translation import ugettext_lazy as _
-import models as suit_models
 
+import models as suit_models
 
 class SortableModelAdminBase(object):
     """
@@ -25,7 +25,6 @@ class SortableListForm(ModelForm):
     """
     Just Meta holder class
     """
-
     class Meta:
         widgets = {
             'order': NumberInput(
@@ -67,7 +66,7 @@ class SortableTabularInline(SortableTabularInlineBase, admin.TabularInline):
 
 
 class SortableGenericTabularInline(SortableTabularInlineBase,
-                                   generic.GenericTabularInline):
+                                   GenericTabularInline):
     pass
 
 
@@ -75,7 +74,6 @@ class SortableStackedInlineBase(SortableModelAdminBase):
     """
     Sortable stacked inline
     """
-
     def __init__(self, *args, **kwargs):
         super(SortableStackedInlineBase, self).__init__(*args, **kwargs)
         self.ordering = (self.sortable,)
@@ -122,7 +120,7 @@ class SortableStackedInline(SortableStackedInlineBase, admin.StackedInline):
 
 
 class SortableGenericStackedInline(SortableStackedInlineBase,
-                                   generic.GenericStackedInline):
+                                   GenericStackedInline):
     pass
 
 
@@ -159,7 +157,8 @@ class SortableModelAdmin(SortableModelAdminBase, ModelAdmin):
             'order']
 
     def get_changelist_form(self, request, **kwargs):
-        form = super(SortableModelAdmin, self).get_changelist_form(request, **kwargs)
+        form = super(SortableModelAdmin, self).get_changelist_form(request,
+                                                                   **kwargs)
         self.merge_form_meta(form)
         return form
 

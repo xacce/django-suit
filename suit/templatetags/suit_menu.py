@@ -411,7 +411,7 @@ class Menu(object):
         """
         for app in menu:
             for model in app['models']:
-                if model['url'] and self.request.path.startswith(model['url']):
+                if model['url'] and self.request.path.startswith(str(model['url'])):
                     model['is_active'] = True
                     app['is_active'] = self.app_activated = True
                     break
